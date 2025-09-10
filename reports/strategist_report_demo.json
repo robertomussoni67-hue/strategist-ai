@@ -1,0 +1,41 @@
+{
+  "allocation_philosophy": "Bilanciato",
+  "macro": {
+    "regime": "Espansivo"
+  },
+  "sentiment": {
+    "market_sentiment": "Positivo"
+  },
+  "allocation": {
+    "Azioni": 60,
+    "Obbligazioni": 30,
+    "Liquidità": 10
+  },
+  "plan": [
+    {"Asset": "Azioni", "Peso": "60%"},
+    {"Asset": "Obbligazioni", "Peso": "30%"},
+    {"Asset": "Liquidità", "Peso": "10%"}
+  ],
+  "backtest": {
+    "cagr": 7.5,
+    "volatility": 12.3,
+    "sharpe_ratio": 0.85,
+    "max_drawdown": 18.2
+  },
+  "risk": {
+    "metrics": {
+      "VaR": "5%",
+      "Beta": "1.2"
+    },
+    "top_positions": [
+      {"Ticker": "AAPL", "Peso": "15%"},
+      {"Ticker": "MSFT", "Peso": "12%"}
+    ],
+    "sectors": {
+      "top_sectors": [
+        {"Settore": "Tecnologia", "Peso": "40%"},
+        {"Settore": "Finanza", "Peso": "25%"}
+      ]
+    }
+  }
+}

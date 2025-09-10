@@ -49,12 +49,18 @@ st.sidebar.write(f"**Sentiment:** {data['sentiment'].get('market_sentiment', 'N/
 # === Allocazione ===
 st.subheader("📈 Allocazione strategica")
 alloc = data.get("allocation", {})
-st.bar_chart(alloc)
+if alloc:
+    st.bar_chart(alloc)
+else:
+    st.info("Nessun dato di allocazione disponibile.")
 
 # === Piano allocativo ===
 st.subheader("🧭 Piano allocativo")
 plan = data.get("plan", [])
-st.dataframe(plan)
+if plan:
+    st.dataframe(plan)
+else:
+    st.info("Nessun piano allocativo disponibile.")
 
 # === Backtest ===
 st.subheader("📉 Backtest storico")
@@ -64,13 +70,17 @@ if backtest:
     st.metric("Volatilità", f"{backtest.get('volatility', 0)}%")
     st.metric("Sharpe Ratio", backtest.get("sharpe_ratio", "N/A"))
     st.metric("Max Drawdown", f"{backtest.get('max_drawdown', 0)}%")
+else:
+    st.info("Nessun dato di backtest disponibile.")
 
 # === Rischio ===
 st.subheader("🧠 Analisi del rischio")
 risk = data.get("risk", {})
 if risk:
-    st.json(risk["metrics"])
+    st.json(risk.get("metrics", {}))
     st.write("**Top posizioni:**")
     st.table(risk.get("top_positions", []))
     st.write("**Settori principali:**")
     st.table(risk.get("sectors", {}).get("top_sectors", []))
+else:
+    st.info("Nessun dato di rischio disponibile.")

@@ -1,0 +1,5 @@
+ticker,name,ter,aum,style
+VWCE.DE,Vanguard FTSE All-World,0.22,5000,global
+IEUR,iShares Europe ETF,0.2,3000,europe
+SPY,SPDR S&P 500 ETF,0.09,40000,us
+AGGH,iShares Global Aggregate Bond,0.1,2500,bonds

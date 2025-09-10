@@ -1,0 +1,4 @@
+ticker,name,ter,aum_eur_m,replication,domicile,currency,distribution
+VWCE.DE,Vanguard FTSE All-World,0.22,5000,physical,IE,EUR,accumulating
+IEUR,iShares MSCI Europe,0.25,3000,physical,IE,USD,distributing
+XTRACKERS.DE,Xtrackers ESG MSCI World,0.18,2000,synthetic,LU,EUR,accumulating

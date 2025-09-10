@@ -1,0 +1,28 @@
+{
+    "last_update": "2025-09-02 00:19:46",
+    "total_value": 4933.2,
+    "total_pl": 1433.1999999999998,
+    "portfolio_details": [
+        {
+            "Simbolo": "ENI.MI",
+            "Prezzo": 15.318,
+            "Valore": 1531.8,
+            "P/L": 231.8,
+            "Rendimento": 17.83
+        },
+        {
+            "Simbolo": "ISP.MI",
+            "Prezzo": 5.4,
+            "Valore": 1080.0,
+            "P/L": 580.0,
+            "Rendimento": 116.0
+        },
+        {
+            "Simbolo": "AAPL",
+            "Prezzo": 232.14,
+            "Valore": 2321.4,
+            "P/L": 621.4,
+            "Rendimento": 36.55
+        }
+    ]
+}

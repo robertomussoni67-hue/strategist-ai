@@ -1,0 +1,105 @@
+{
+  "macro": {
+    "inflation_yoy": 4.42,
+    "policy_rate": 2.61,
+    "gdp_growth": 2.85,
+    "unemployment_rate": 6.24,
+    "pmi_index": 54.7,
+    "outlook_3_6m": {
+      "inflation_trend": "down",
+      "rates_trend": "down",
+      "gdp_trend": "positive",
+      "labor_trend": "loose",
+      "pmi_signal": "expansion"
+    },
+    "regime": "neutral"
+  },
+  "sentiment": {
+    "market_sentiment": "neutral",
+    "confidence": 0.047,
+    "details": {
+      "texts_analyzed": 5,
+      "average_compound": 0.047,
+      "individual_scores": [
+        -0.0772,
+        0.0,
+        -0.1027,
+        0.836,
+        -0.4215
+      ]
+    }
+  },
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "name": "AAPL Stock"
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MSFT Stock"
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "GOOGL Stock"
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMZN Stock"
+    },
+    {
+      "ticker": "TSLA",
+      "name": "TSLA Stock"
+    }
+  ],
+  "etf": [
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "ter": 0.22,
+      "aum_eur_m": 5000,
+      "replication": "physical",
+      "domicile": "IE",
+      "currency": "EUR",
+      "distribution": "accumulating"
+    },
+    {
+      "ticker": "IEUR",
+      "name": "iShares MSCI Europe",
+      "ter": 0.25,
+      "aum_eur_m": 3000,
+      "replication": "physical",
+      "domicile": "IE",
+      "currency": "USD",
+      "distribution": "distributing"
+    },
+    {
+      "ticker": "XTRACKERS.DE",
+      "name": "Xtrackers ESG MSCI World",
+      "ter": 0.18,
+      "aum_eur_m": 2000,
+      "replication": "synthetic",
+      "domicile": "LU",
+      "currency": "EUR",
+      "distribution": "accumulating"
+    }
+  ],
+  "validation": {
+    "macro_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "sentiment_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "stocks_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "etf_agent": {
+      "valid": true,
+      "errors": []
+    }
+  },
+  "summary": "4 agenti validati su 4"
+}

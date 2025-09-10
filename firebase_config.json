@@ -1,0 +1,17 @@
+{
+  "firebase_config": {
+    "type": "service_account",
+    "project_id": "strategist-roberto",
+    "private_key_id": "3bfcd8ad276ec76fe936472c4fe2d4b8ed771a8f",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCts9ev9AuXUINL\n...\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-fbsvc@strategist-roberto.iam.gserviceaccount.com",
+    "client_id": "112265276124744994617",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40strategist-roberto.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  },
+  "app_id": "strategist-app",
+  "user_id": "roberto"
+}

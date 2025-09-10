@@ -1,0 +1,10 @@
+Modulo: intelligence_macro.py  
+Funzione: estrai_macro_trend()  
+Scopo: raccogliere e sintetizzare macro-trend globali  
+Fonti previste: Wall Street Italia, Teleborsa, Intesa Sanpaolo  
+Collegato a: stratega_ai/main.py tramite import  
+Stato: attivo e funzionante  
+Prossimi step:  
+- Collegamento a fonti reali (API o scraping)  
+- Attivazione condizionata dei sub-agenti  
+- Integrazione con modulo decisionale strategist_ai

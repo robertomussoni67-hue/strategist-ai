@@ -1,0 +1,25 @@
+"utente": "Sonia",
+  "profilo_investitore": {
+    "tipo": "Moderato",
+    "rischio": "Medio",
+    "preferenza_liquidità": "Alta",
+    "esg": true
+  },
+  "orizzonte_temporale": 5,
+  "vincoli_fiscali": "Italia",
+  "vincoli_personali": {
+    "preferenza_dividendi": "accumulazione",
+    "escludi_strumenti_usa_distribuzione": true,
+    "peso_massimo_titolo_singolo": 5,
+    "prezzo_massimo": {
+      "ETF": 100,
+      "ETC": 500,
+      "Azioni": 50
+    }
+  },
+  "obiettivi": [
+    "Crescita del capitale",
+    "Rendita da dividendi",
+    "Protezione dall'inflazione"
+  ]
+}

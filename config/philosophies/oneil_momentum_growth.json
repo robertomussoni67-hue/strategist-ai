@@ -1,0 +1,15 @@
+{
+  "name": "William O'Neil Momentum",
+  "weights": { "growth": 0.6, "quality": 0.2, "moat": 0.2 },
+  "screens": [
+    { "field": "revenue_cagr_5y", "op": ">", "value": 0.20 }
+  ],
+  "min_score": 75,
+  "base_allocation": { "GROWTH_STOCKS": 0.8, "CASH": 0.2 },
+  "macro_overlay": {
+    "tilts": {
+      "up_up": { "GROWTH_STOCKS": 0.1, "CASH": -0.1 },
+      "up_down": { "CASH": 0.05 }
+    }
+  }
+}

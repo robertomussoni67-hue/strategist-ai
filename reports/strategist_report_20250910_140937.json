@@ -1,0 +1,143 @@
+{
+  "macro": {
+    "inflation_yoy": 4.59,
+    "policy_rate": 4.12,
+    "gdp_growth": -0.08,
+    "unemployment_rate": 9.11,
+    "pmi_index": 46.4,
+    "outlook_3_6m": {
+      "inflation_trend": "stable",
+      "rates_trend": "up",
+      "gdp_trend": "negative",
+      "labor_trend": "loose",
+      "pmi_signal": "contraction"
+    },
+    "regime": "recession"
+  },
+  "sentiment": {
+    "market_sentiment": "neutral",
+    "confidence": 0.0469,
+    "details": {
+      "texts_analyzed": 5,
+      "average_compound": 0.0469,
+      "individual_scores": [
+        -0.0772,
+        0.0,
+        -0.1027,
+        0.836,
+        -0.4215
+      ]
+    }
+  },
+  "stocks": [
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corp."
+    },
+    {
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corp."
+    }
+  ],
+  "etf": [
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "ter": 0.22,
+      "aum": 5000,
+      "style": "global"
+    },
+    {
+      "ticker": "IEUR",
+      "name": "iShares Europe ETF",
+      "ter": 0.2,
+      "aum": 3000,
+      "style": "europe"
+    },
+    {
+      "ticker": "SPY",
+      "name": "SPDR S&P 500 ETF",
+      "ter": 0.09,
+      "aum": 40000,
+      "style": "us"
+    },
+    {
+      "ticker": "AGGH",
+      "name": "iShares Global Aggregate Bond",
+      "ter": 0.1,
+      "aum": 2500,
+      "style": "bonds"
+    }
+  ],
+  "validation": {
+    "macro_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "sentiment_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "stocks_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "etf_agent": {
+      "valid": true,
+      "errors": []
+    }
+  },
+  "summary": "4 agenti validati su 4",
+  "allocation": {
+    "equity": 0.19607843137254902,
+    "gov_bonds_long": 0.49019607843137253,
+    "gov_bonds_mid": 0.14705882352941177,
+    "gold": 0.09313725490196079,
+    "commodities": 0.07352941176470588,
+    "cash": 0.0
+  },
+  "allocation_philosophy": "all_seasons",
+  "allocation_regime_key": "growth_down_infl_down",
+  "plan": [
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.1373
+    },
+    {
+      "ticker": "MSFT",
+      "name": "Microsoft Corp.",
+      "type": "STOCK",
+      "weight": 0.0196
+    },
+    {
+      "ticker": "JNJ",
+      "name": "Johnson & Johnson",
+      "type": "STOCK",
+      "weight": 0.0196
+    },
+    {
+      "ticker": "NVDA",
+      "name": "NVIDIA Corp.",
+      "type": "STOCK",
+      "weight": 0.0196
+    },
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.4902
+    },
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.1471
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Connessione Strategist</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f9f9f9; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+    button { padding: 10px 20px; font-size: 16px; background: #0078D4; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #005a9e; }
+  </style>
+</head>
+<body>
+  <h1>Test Connessione Strategist</h1>
+  <button onclick="runTest()">Invia richiesta al server</button>
+  <h2>Risposta JSON:</h2>
+  <pre id="output">Nessuna risposta ancora.</pre>
+
+  <script>
+    async function runTest() {
+      try {
+        const res = await fetch('http://localhost:5000/api/run_analysis', {
+          method: 'POST'
+        });
+        const data = await res.json();
+        document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById('output').textContent = 'Errore: ' + err;
+      }
+    }
+  </script>
+</body>
+</html>

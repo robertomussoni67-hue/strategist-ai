@@ -1,0 +1,165 @@
+{
+  "macro": {
+    "inflation_yoy": 4.59,
+    "policy_rate": 4.12,
+    "gdp_growth": -0.08,
+    "unemployment_rate": 9.11,
+    "pmi_index": 46.4,
+    "outlook_3_6m": {
+      "inflation_trend": "stable",
+      "rates_trend": "down",
+      "gdp_trend": "negative",
+      "labor_trend": "loose",
+      "pmi_signal": "contraction"
+    },
+    "regime": "recession"
+  },
+  "sentiment": {
+    "market_sentiment": "neutral",
+    "confidence": 0.047,
+    "details": {
+      "texts_analyzed": 5,
+      "average_compound": 0.047,
+      "individual_scores": [
+        -0.0772,
+        0.0,
+        -0.1027,
+        0.836,
+        -0.4215
+      ]
+    }
+  },
+  "stocks": [
+    {
+      "ticker": "AAPL",
+      "name": "AAPL Stock"
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MSFT Stock"
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "GOOGL Stock"
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMZN Stock"
+    },
+    {
+      "ticker": "TSLA",
+      "name": "TSLA Stock"
+    }
+  ],
+  "etf": [
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "ter": 0.22,
+      "aum_eur_m": 5000,
+      "replication": "physical",
+      "domicile": "IE",
+      "currency": "EUR",
+      "distribution": "accumulating"
+    },
+    {
+      "ticker": "IEUR",
+      "name": "iShares MSCI Europe",
+      "ter": 0.25,
+      "aum_eur_m": 3000,
+      "replication": "physical",
+      "domicile": "IE",
+      "currency": "USD",
+      "distribution": "distributing"
+    },
+    {
+      "ticker": "XTRACKERS.DE",
+      "name": "Xtrackers ESG MSCI World",
+      "ter": 0.18,
+      "aum_eur_m": 2000,
+      "replication": "synthetic",
+      "domicile": "LU",
+      "currency": "EUR",
+      "distribution": "accumulating"
+    }
+  ],
+  "validation": {
+    "macro_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "sentiment_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "stocks_agent": {
+      "valid": true,
+      "errors": []
+    },
+    "etf_agent": {
+      "valid": true,
+      "errors": []
+    }
+  },
+  "summary": "4 agenti validati su 4",
+  "allocation": {
+    "equity": 0.19607843137254902,
+    "gov_bonds_long": 0.49019607843137253,
+    "gov_bonds_mid": 0.14705882352941177,
+    "gold": 0.09313725490196079,
+    "commodities": 0.07352941176470588,
+    "cash": 0.0
+  },
+  "allocation_philosophy": "all_seasons",
+  "allocation_regime_key": "growth_down_infl_down",
+  "plan": [
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.1373
+    },
+    {
+      "ticker": "AAPL",
+      "name": "AAPL Stock",
+      "type": "STOCK",
+      "weight": 0.0118
+    },
+    {
+      "ticker": "MSFT",
+      "name": "MSFT Stock",
+      "type": "STOCK",
+      "weight": 0.0118
+    },
+    {
+      "ticker": "GOOGL",
+      "name": "GOOGL Stock",
+      "type": "STOCK",
+      "weight": 0.0118
+    },
+    {
+      "ticker": "AMZN",
+      "name": "AMZN Stock",
+      "type": "STOCK",
+      "weight": 0.0118
+    },
+    {
+      "ticker": "TSLA",
+      "name": "TSLA Stock",
+      "type": "STOCK",
+      "weight": 0.0118
+    },
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.4902
+    },
+    {
+      "ticker": "VWCE.DE",
+      "name": "Vanguard FTSE All-World",
+      "type": "ETF",
+      "weight": 0.1471
+    }
+  ]
+}

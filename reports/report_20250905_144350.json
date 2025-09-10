@@ -1,0 +1,23 @@
+{
+    "summary": "Regime macro: disinflation_to_reflation_transition | Inflazione: up | Tassi: up | Sentiment: neutral. Filosofie applicate: Dalio, Buffett",
+    "rationales": [
+        "Dalio: tassi/inflazione in aumento \u2192 preferire value/difensivi e flussi di cassa stabili.",
+        "Value: cercare sottovalutazione con margine di sicurezza e qualit\u00e0 (ROIC>WACC, moat, gestione)."
+    ],
+    "recommendations": {
+        "etf": [
+            {
+                "symbol": "VWCE.DE",
+                "score": 1.1,
+                "rationale": "Indice: FTSE All-World, TER: 0.22%, replica: physical, AUM: 5000M\u20ac, spread: 0.04%, emittente: vanguard"
+            }
+        ],
+        "stocks": [
+            {
+                "ticker": "AAPL",
+                "flag": "undervalued",
+                "rationale": "Moat: brand, ecosystem; DCF > prezzo"
+            }
+        ]
+    }
+}

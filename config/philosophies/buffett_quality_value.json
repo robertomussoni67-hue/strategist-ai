@@ -1,0 +1,19 @@
+{
+  "name": "Buffett Quality Value",
+  "weights": { "valuation": 0.35, "quality": 0.40, "moat": 0.15, "growth": 0.10 },
+  "screens": [
+    { "field": "ev_ebit", "op": "<", "value": 26 },
+    { "field": "roic", "op": ">", "value": 0.12 },
+    { "field": "moat_score", "op": ">", "value": 0.6 }
+  ],
+  "min_score": 70,
+  "base_allocation": { "QUALITY_STOCKS": 0.7, "CASH": 0.3 },
+  "macro_overlay": {
+    "tilts": {
+      "up_down": { "QUALITY_STOCKS": 0.05 },
+      "up_up":   { "QUALITY_STOCKS": 0.02, "CASH": -0.02 },
+      "down_down": { "CASH": 0.1 },
+      "down_up": { "QUALITY_STOCKS": 0.05 }
+    }
+  }
+}

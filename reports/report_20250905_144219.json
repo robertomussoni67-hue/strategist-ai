@@ -1,0 +1,14 @@
+{
+    "summary": "Regime macro: disinflation_to_reflation_transition | Inflazione: up | Tassi: up | Sentiment: neutral. Filosofie applicate: ",
+    "rationales": [],
+    "recommendations": {
+        "etf": [
+            {
+                "symbol": "VWCE.DE",
+                "score": 1.1,
+                "rationale": "Indice: FTSE All-World, TER: 0.22%, replica: physical, AUM: 5000M\u20ac, spread: 0.04%, emittente: vanguard"
+            }
+        ],
+        "stocks": []
+    }
+}

@@ -1,0 +1,28 @@
+[debug] [2025-09-03T20:14:56.587Z] ----------------------------------------------------------------------
+[debug] [2025-09-03T20:14:56.594Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\sonia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init functions
+[debug] [2025-09-03T20:14:56.595Z] CLI Version:   14.15.1
+[debug] [2025-09-03T20:14:56.596Z] Platform:      win32
+[debug] [2025-09-03T20:14:56.596Z] Node Version:  v22.19.0
+[debug] [2025-09-03T20:14:56.597Z] Time:          Wed Sep 03 2025 22:14:56 GMT+0200 (Ora legale dell’Europa centrale)
+[debug] [2025-09-03T20:14:56.597Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-03T20:14:56.608Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-03T20:14:56.608Z] > authorizing via signed-in user (robertomussoni67@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\sonia\OneDrive\Desktop\Strategist
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 

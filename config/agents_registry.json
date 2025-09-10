@@ -1,0 +1,32 @@
+{
+  "macro": {
+    "status": "active",
+    "version": "1.0",
+    "description": "Analisi del regime macroeconomico e overlay strategici",
+    "last_updated": "2025-09-06"
+  },
+  "sentiment": {
+    "status": "planned",
+    "version": "0.0",
+    "description": "Analisi del sentiment di mercato da news e social",
+    "last_updated": null
+  },
+  "etf": {
+    "status": "active",
+    "version": "1.0",
+    "description": "Screening ETF secondo criteri qualitativi e fiscali",
+    "last_updated": "2025-09-06"
+  },
+  "stocks": {
+    "status": "active",
+    "version": "1.0",
+    "description": "Analisi azioni con DCF, multipli, moat e solidità finanziaria",
+    "last_updated": "2025-09-06"
+  },
+  "crypto": {
+    "status": "archived",
+    "version": "0.1",
+    "description": "Prototipo di analisi criptovalute (non in uso)",
+    "last_updated": "2025-07-12"
+  }
+}

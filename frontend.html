@@ -1,0 +1,262 @@
+
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratega App</title>
+    <!-- Tailwind CSS per uno stile moderno e responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Contenitore principale dell'applicazione -->
+    <div class="bg-white rounded-3xl shadow-xl w-full max-w-2xl p-8 space-y-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900">Stratega App</h1>
+            <p class="mt-2 text-lg text-gray-600">Gestisci i tuoi strateghi per la pianificazione e l'innovazione.</p>
+        </div>
+
+        <!-- Sezione per creare un nuovo stratega -->
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800">Crea un nuovo stratega</h2>
+            <form id="create-strategist-form" class="mt-4 space-y-4">
+                <div>
+                    <label for="strategist-name" class="block text-sm font-medium text-gray-700">Nome:</label>
+                    <input type="text" id="strategist-name" name="name" required
+                           class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="strategist-description" class="block text-sm font-medium text-gray-700">Descrizione:</label>
+                    <textarea id="strategist-description" name="description" rows="3" required
+                              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit"
+                        class="w-full px-4 py-2 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                    Crea
+                </button>
+            </form>
+        </div>
+
+        <!-- Sezione per mostrare gli strateghi esistenti -->
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800">I tuoi strateghi</h2>
+            <div id="strategists-list" class="mt-4 space-y-4">
+                <!-- Gli strateghi verranno caricati qui dalla nostra API -->
+                <p id="loading-message" class="text-center text-gray-500">Caricamento strateghi...</p>
+                <p id="empty-message" class="text-center text-gray-500 hidden">Ancora nessun stratega.</p>
+                <div id="strategist-cards-container" class="space-y-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale per le modifiche e le azioni utente -->
+    <div id="modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 space-y-4">
+            <h3 id="modal-title" class="text-2xl font-bold text-gray-900"></h3>
+            <div id="modal-body" class="space-y-4"></div>
+            <div class="flex justify-end space-x-2">
+                <button id="modal-close" class="px-4 py-2 bg-gray-200 text-gray-800 font-medium rounded-lg hover:bg-gray-300 transition-colors">Chiudi</button>
+                <button id="modal-confirm" class="px-4 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors hidden">Conferma</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "http://127.0.0.1:8000";
+
+        const form = document.getElementById('create-strategist-form');
+        const strategistsList = document.getElementById('strategists-list');
+        const strategistCardsContainer = document.getElementById('strategist-cards-container');
+        const loadingMessage = document.getElementById('loading-message');
+        const emptyMessage = document.getElementById('empty-message');
+
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const modalConfirmBtn = document.getElementById('modal-confirm');
+
+        // Funzione per mostrare il modale con un messaggio
+        function showModal(title, message, showConfirm = false, onConfirm = null) {
+            modalTitle.textContent = title;
+            modalBody.innerHTML = `<p class="text-gray-700">${message}</p>`;
+            modalConfirmBtn.classList.toggle('hidden', !showConfirm);
+            modalConfirmBtn.onclick = onConfirm;
+            modal.classList.remove('hidden');
+        }
+
+        // Funzione per nascondere il modale
+        function hideModal() {
+            modal.classList.add('hidden');
+        }
+        modalCloseBtn.onclick = hideModal;
+
+        // Funzione per visualizzare gli strateghi
+        async function fetchAndRenderStrategists() {
+            loadingMessage.classList.remove('hidden');
+            strategistCardsContainer.innerHTML = '';
+
+            try {
+                const response = await fetch(`${API_URL}/strategists/`);
+                if (!response.ok) {
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+                const data = await response.json();
+                const strategists = data.strategists || [];
+
+                loadingMessage.classList.add('hidden');
+                emptyMessage.classList.toggle('hidden', strategists.length > 0);
+
+                strategists.forEach((strategist, index) => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col md:flex-row items-start md:items-center justify-between space-y-4 md:space-y-0";
+                    card.innerHTML = `
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">${strategist.name}</h3>
+                            <p class="mt-1 text-gray-600">${strategist.description}</p>
+                        </div>
+                        <div class="flex space-x-2 mt-4 md:mt-0">
+                            <button class="edit-btn px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors" data-id="${index}">Modifica</button>
+                            <button class="delete-btn px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors" data-id="${index}">Elimina</button>
+                        </div>
+                    `;
+                    strategistCardsContainer.appendChild(card);
+                });
+
+                attachEventListeners();
+
+            } catch (error) {
+                console.error("Errore nel recupero degli strateghi:", error);
+                loadingMessage.textContent = "Errore nel caricamento. Assicurati che il backend sia in esecuzione.";
+                loadingMessage.classList.remove('hidden');
+                emptyMessage.classList.add('hidden');
+                showModal('Errore di Connessione', 'Non riesco a connettermi all\'API. Per favore, avvia il backend.', false);
+            }
+        }
+
+        // Funzione per aggiungere i listener ai pulsanti di modifica ed eliminazione
+        function attachEventListeners() {
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.dataset.id;
+                    const strategist = strategistsList.querySelectorAll('.bg-white')[id];
+                    const name = strategist.querySelector('h3').textContent;
+                    const description = strategist.querySelector('p').textContent;
+                    editStrategist(id, name, description);
+                });
+            });
+
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const id = e.target.dataset.id;
+                    const strategist = strategistsList.querySelectorAll('.bg-white')[id];
+                    const name = strategist.querySelector('h3').textContent;
+                    confirmDelete(id, name);
+                });
+            });
+        }
+
+        // Gestisce l'invio del form per creare un nuovo stratega
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('strategist-name').value;
+            const description = document.getElementById('strategist-description').value;
+
+            try {
+                const response = await fetch(`${API_URL}/strategists/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, description }),
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Errore HTTP: ${response.status}`);
+                }
+
+                form.reset();
+                showModal('Stratega Creato', `"${name}" è stato creato con successo!`, false);
+                fetchAndRenderStrategists(); // Aggiorna la lista
+            } catch (error) {
+                console.error("Errore nella creazione dello stratega:", error);
+                showModal('Errore', 'Si è verificato un errore nella creazione dello stratega. Assicurati che il backend sia in esecuzione.', false);
+            }
+        });
+
+        // Funzione per mostrare il modale di modifica
+        function editStrategist(id, name, description) {
+            modalTitle.textContent = 'Modifica stratega';
+            modalBody.innerHTML = `
+                <form id="edit-form" class="space-y-4">
+                    <div>
+                        <label for="edit-name" class="block text-sm font-medium text-gray-700">Nome:</label>
+                        <input type="text" id="edit-name" value="${name}" required
+                               class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm">
+                    </div>
+                    <div>
+                        <label for="edit-description" class="block text-sm font-medium text-gray-700">Descrizione:</label>
+                        <textarea id="edit-description" rows="3" required
+                                  class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-xl shadow-sm">${description}</textarea>
+                    </div>
+                </form>
+            `;
+            modalConfirmBtn.textContent = 'Salva modifiche';
+            modalConfirmBtn.classList.remove('hidden');
+
+            modalConfirmBtn.onclick = async () => {
+                const updatedName = document.getElementById('edit-name').value;
+                const updatedDescription = document.getElementById('edit-description').value;
+                try {
+                    const response = await fetch(`${API_URL}/strategists/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: updatedName, description: updatedDescription })
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    hideModal();
+                    showModal('Modifica Salvata', 'Le modifiche sono state salvate con successo!', false);
+                    fetchAndRenderStrategists();
+                } catch (error) {
+                    console.error('Errore durante l\'aggiornamento:', error);
+                    showModal('Errore', 'Si è verificato un errore durante l\'aggiornamento.', false);
+                }
+            };
+            modal.classList.remove('hidden');
+        }
+
+        // Funzione per mostrare il modale di conferma eliminazione
+        function confirmDelete(id, name) {
+            showModal(
+                'Conferma eliminazione',
+                `Sei sicuro di voler eliminare lo stratega "${name}"?`,
+                true,
+                async () => {
+                    try {
+                        const response = await fetch(`${API_URL}/strategists/${id}`, {
+                            method: 'DELETE'
+                        });
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        hideModal();
+                        showModal('Eliminato', 'Stratega eliminato con successo.', false);
+                        fetchAndRenderStrategists();
+                    } catch (error) {
+                        console.error('Errore durante l\'eliminazione:', error);
+                        showModal('Errore', 'Si è verificato un errore durante l\'eliminazione.', false);
+                    }
+                }
+            );
+            modalConfirmBtn.textContent = 'Sì, elimina';
+        }
+
+        // Esegue il fetch iniziale
+        fetchAndRenderStrategists();
+    </script>
+</body>
+</html>

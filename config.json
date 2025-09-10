@@ -1,0 +1,31 @@
+{
+  "subagents": {
+    "subagent_macro": {
+      "mode": "live",
+      "api_key": "d2qtsphr01qluccq1v30d2qtsphr01qluccq1v3g"
+    },
+    "subagent_sentiment": {
+      "mode": "live",
+      "api_key": "d2qtsphr01qluccq1v30d2qtsphr01qluccq1v3g",
+      "reddit_client_id": "7ksacCbLMCgz3irHejYSdw",
+      "reddit_client_secret": "ggdhb1aIsJow_wYtLqTQw0kTGef2ew",
+      "reddit_user_agent": "strategist/1.0 by u/Roberto123"
+    },
+    "subagent_etf": {
+      "mode": "mock"
+    },
+    "subagent_stocks": {
+      "mode": "mock"
+    }
+  },
+  "investment_philosophies": [
+    "Dalio",
+    "Buffett",
+    "Graham",
+    "Klarman",
+    "Munger",
+    "Lynch",
+    "CathieWood",
+    "Soros"
+  ]
+}

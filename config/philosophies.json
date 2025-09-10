@@ -1,0 +1,7 @@
+{
+  "philosophies": {
+    "buffett_quality_value": "philosophies/buffett_quality_value.json",
+    "oneil_momentum_growth": "philosophies/oneil_momentum_growth.json",
+    "ark_disruptive_innovation": "philosophies/ark_disruptive_innovation.json"
+  }
+}

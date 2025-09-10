@@ -2,6 +2,23 @@ import streamlit as st
 import json
 from pathlib import Path
 
+# === Autenticazione ===
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    st.sidebar.title("🔐 Login")
+    email = st.sidebar.text_input("Email")
+    password = st.sidebar.text_input("Password", type="password")
+    if st.sidebar.button("Accedi"):
+        users = st.secrets["auth"]["allowed_users"]
+        pwds = st.secrets["auth"]["passwords"]
+        if email in users and pwds[email] == password:
+            st.session_state.authenticated = True
+        else:
+            st.sidebar.error("Credenziali non valide")
+    st.stop()
+
 # === Carica ultimo report JSON ===
 def load_latest_report():
     reports_dir = Path("reports")
